@@ -13,11 +13,20 @@ jobs:
         with:
           persist-credentials: false
 
-      - run: npm i -g prettier
-      - run: prettier -w .
+      - run: echo bar > bat.txt
 
       - uses: csm-actions/securefix-action@pr/209
         with:
           app_id: ${{vars.TEST_CLIENT_APP_ID}}
           app_private_key: ${{secrets.TEST_CLIENT_PRIVATE_KEY}}
           server_repository: test-server
+          branch: test-209-2
+          pull_request_title: Title
+          pull_request_base_branch: main
+          pull_request_assignees: |
+            suzuki-shunsuke
+          pull_request_reviewers: |
+            suzuki-shunsuke
+          pull_request_labels: |
+            enhancement
+            yo
