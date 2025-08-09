@@ -13,9 +13,7 @@ jobs:
         with:
           persist-credentials: false
           path: zoo
-
       - run: echo zoo > zoo/zoo.txt
-
       - uses: csm-actions/securefix-action@pr/208
         with:
           app_id: ${{vars.TEST_CLIENT_APP_ID}}
