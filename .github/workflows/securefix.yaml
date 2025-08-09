@@ -12,8 +12,8 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
+          path: zoo
 
-      - run: mkdir zoo
       - run: echo zoo > zoo/zoo.txt
 
       - uses: csm-actions/securefix-action@pr/208
