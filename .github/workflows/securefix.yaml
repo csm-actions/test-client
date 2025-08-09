@@ -16,7 +16,7 @@ jobs:
       - run: npm i -g prettier
       - run: prettier -w .
 
-      - uses: csm-actions/securefix-action@88b0ac73776233f648080baf9e8e103377db2fb2 # v0.2.1
+      - uses: csm-actions/securefix-action@05036cda4e1fcaeba401d23261056048fe20ba27 # v0.2.2
         with:
           app_id: ${{vars.TEST_CLIENT_APP_ID}}
           app_private_key: ${{secrets.TEST_CLIENT_PRIVATE_KEY}}
