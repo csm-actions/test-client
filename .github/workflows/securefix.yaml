@@ -13,10 +13,15 @@ jobs:
         with:
           persist-credentials: false
 
-      - run: echo zoo > bat.txt
+      - run: mkdir zoo
+      - run: echo zoo > zoo/zoo.txt
 
-      - uses: csm-actions/securefix-action@pr/209
+      - uses: csm-actions/securefix-action@pr/208
         with:
           app_id: ${{vars.TEST_CLIENT_APP_ID}}
           app_private_key: ${{secrets.TEST_CLIENT_PRIVATE_KEY}}
           server_repository: test-server
+          root_dir: zoo
+          files: |
+            zoo.txt
+
