@@ -12,10 +12,18 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-      - run: echo bar > zoo.txt
-      - uses: csm-actions/securefix-action@pr/208
+      - run: mkdir build
+      - run: echo foo > build/foo.txt
+      - uses: suzuki-shunsuke/gh-pages-action@feat-support-securefix-action
         with:
+          publish_dir: build
+          destination_dir: docs
           app_id: ${{vars.TEST_CLIENT_APP_ID}}
           app_private_key: ${{secrets.TEST_CLIENT_PRIVATE_KEY}}
-          server_repository: test-server
+          securefix_action_server_repository: test-server
+      # - uses: csm-actions/securefix-action@pr/208
+      #   with:
+      #     app_id: ${{vars.TEST_CLIENT_APP_ID}}
+      #     app_private_key: ${{secrets.TEST_CLIENT_PRIVATE_KEY}}
+      #     server_repository: test-server
 
