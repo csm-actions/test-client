@@ -1,0 +1,23 @@
+---
+name: securefix
+# on: push
+on: pull_request
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - run: npm i -g prettier
+      - run: prettier -w .
+
+      - uses: csm-actions/securefix-action@758a17e6f52a70ab0d8102ef1cd13cd0107206e6 # v0.2.0
+        with:
+          app_id: ${{vars.DEMO_CLIENT_APP_ID}}
+          app_private_key: ${{secrets.DEMO_CLIENT_PRIVATE_KEY}}
+          server_repository: demo-server

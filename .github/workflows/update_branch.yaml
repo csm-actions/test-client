@@ -1,0 +1,15 @@
+---
+name: Update pull request branch by pull request comment
+on: issue_comment
+jobs:
+  update_branch:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions: {}
+    if: github.event.issue.pull_request && contains(fromJSON('["/update-branch", "/ub"]'), github.event.comment.body)
+    steps:
+      - uses: csm-actions/update-branch-action@105a6c8d00edd27a4a1f81188e3b24f27e6fd0ab # v0.1.1
+        with:
+          app_id: ${{vars.DEMO_CLIENT_APP_ID}}
+          app_private_key: ${{secrets.DEMO_CLIENT_PRIVATE_KEY}}
+          server_repository_name: demo-server
