@@ -12,7 +12,7 @@ jobs:
       pull-requests: read
       contents: read
     steps:
-      - uses: csm-actions/approve-pr-action@7378e3445407a0f8d8029d5b055faeccd03cd710 # v0.1.1
+      - uses: csm-actions/approve-pr-action@452271472f121d6d2f8e7a0761488d2fcc29b715 # v0.2.0
         with:
           pull_request_number: ${{ github.event.issue.number }}
           app_id: ${{vars.TEST_CLIENT_APP_ID}}
