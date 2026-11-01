@@ -8,7 +8,7 @@ jobs:
     permissions: {}
     if: github.event.issue.pull_request && contains(fromJSON('["/update-branch", "/ub"]'), github.event.comment.body)
     steps:
-      - uses: csm-actions/update-branch-action@459fdfc22c30361386e65e7fcbe89d79634894d7 # v1.1.1
+      - uses: csm-actions/update-branch-action@eff8b88c983b2f52c844461797963c375cc2d360 # v1.2.1
         with:
           app_id: ${{vars.TEST_CLIENT_APP_ID}}
           app_private_key: ${{secrets.TEST_CLIENT_PRIVATE_KEY}}
