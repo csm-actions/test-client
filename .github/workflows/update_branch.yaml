@@ -3,7 +3,7 @@ name: Update pull request branch by pull request comment
 on: issue_comment
 jobs:
   update_branch:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
     permissions: {}
     if: github.event.issue.pull_request && contains(fromJSON('["/update-branch", "/ub"]'), github.event.comment.body)
